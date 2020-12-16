@@ -2,9 +2,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: { index: "./src/index.js" },
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "[id].bundle.js",
   },
   module: {
@@ -23,6 +23,11 @@ module.exports = {
     ],
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
+  performance: {
+    hints: false,
+    maxAssetSize: 400000,
+    maxEntrypointSize: 400000,
+  },
   devServer: {
     port: 3000,
     open: true,
