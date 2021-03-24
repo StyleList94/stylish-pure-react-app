@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "webpack serve",
-    "test": "jest --watchAll"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "LovelyHaRa",
   "dependencies": {
