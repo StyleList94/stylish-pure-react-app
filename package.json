@@ -4,6 +4,7 @@
   "description": "create stylish react app",
   "private": true,
   "scripts": {
+    "build": "webpack --mode production",
     "start": "webpack serve",
     "test": "jest",
     "test:watch": "jest --watch"
