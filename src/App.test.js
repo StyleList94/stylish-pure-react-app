@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { render } from "@testing-library/react";
+import { render } from '@testing-library/react';
 
-import App from "./App";
+import App from './App';
 
-describe("<App />", () => {
-  test("should be render", () => {
+describe('<App />', () => {
+  test('should be render', () => {
     const { getByText } = render(<App />);
-    expect(getByText("Stylish React App")).toBeInTheDocument();
+    expect(getByText('Stylish React App')).toBeInTheDocument();
   });
 });

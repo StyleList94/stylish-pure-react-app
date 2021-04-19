@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
   entry: { index: "./src/index.js" },
@@ -51,5 +52,8 @@ module.exports = {
     port: 3000,
     open: true,
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
+  plugins: [
+    new ESLintPlugin(),
+    new HtmlWebpackPlugin({ template: "./public/index.html" }),
+  ],
 };
