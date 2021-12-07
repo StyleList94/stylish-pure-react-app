@@ -17,6 +17,6 @@ yarn start
 
 #### Feature
 
-* Unit Testing with jest / testing-library-react
+* Unit Testing with `jest` / `testing-library-react`
 * CSS / Sass
 
