@@ -1,10 +1,8 @@
 # Styllish React App
 
-###### Custom React Application with webpack
+Custom React Application with webpack
 
----
-
-#### Getting Started
+## Getting Started
 
 ```bash
 git clone https://github.com/LovelyHaRa/stylish-react-app.git
@@ -13,10 +11,7 @@ yarn
 yarn start
 ```
 
----
+## Feature
 
-#### Feature
-
-* Unit Testing with `jest` / `testing-library-react`
-* CSS / Sass
-
+- Unit Testing with `jest` and `testing-library-react`
+- CSS / Sass
