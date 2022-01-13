@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --watch",
+    "test:ci": "jest "
   },
   "author": "LovelyHaRa",
   "dependencies": {
