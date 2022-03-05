@@ -1,17 +1,60 @@
-# Styllish React App
+# Stylish React App
+
+[![image](https://img.shields.io/github/package-json/v/StyleList94/stylish-react-app)](https://github.com/StyleList94/stylish-react-app/releases)
 
 Custom React Application with webpack
 
+## Feature
+
+- React 17
+- Webpack 5
+- Jest
+- React Testing Library
+- ESLint
+- Prettier
+
 ## Getting Started
 
+### Cloning a repository
+
 ```bash
-git clone https://github.com/LovelyHaRa/stylish-react-app.git
-cd stylish-react-app
-yarn
+git clone https://github.com/StyleList94/stylish-react-app.git your-app-name
+cd your-app-name
+```
+
+### Installing dependencies
+
+```bash
+# or yarn
+yarn install
+```
+
+### Starting the app
+
+```bash
 yarn start
 ```
 
-## Feature
+### Build
 
-- Unit Testing with `jest` and `testing-library-react`
-- CSS / Sass
+#### Build for production
+
+```bash
+yarn build
+```
+
+#### Build for development
+
+```bash
+yarn build:dev
+```
+
+### Build and open in browser
+
+```bash
+# or yarn build:dev
+yarn build
+
+# yarn add global serve (if you don't have it)
+serve -s dist
+```
