@@ -2,7 +2,7 @@
   "name": "stylish-react-app",
   "description": "create stylish react app",
   "private": true,
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "StyleList94",
   "scripts": {
     "build": "webpack --config webpack.production.js",

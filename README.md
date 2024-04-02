@@ -1,6 +1,6 @@
 # Stylish React App
 
-[![image](https://img.shields.io/github/package-json/v/StyleList94/stylish-react-app)](https://github.com/StyleList94/stylish-react-app/releases)
+[![image](https://img.shields.io/github/package-json/v/StyleList94/stylish-pure-react-app)](https://github.com/StyleList94/stylish-pure-react-app/releases)
 
 Custom React Application with webpack
 
