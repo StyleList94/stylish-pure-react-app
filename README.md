@@ -6,7 +6,7 @@ Custom React Application with webpack
 
 ## Feature
 
-- React 17
+- React 18
 - Webpack 5
 - Jest
 - React Testing Library
@@ -18,7 +18,7 @@ Custom React Application with webpack
 ### Cloning a repository
 
 ```bash
-git clone https://github.com/StyleList94/stylish-react-app.git your-app-name
+npx degit https://github.com/StyleList94/stylish-pure-react-app.git [your-app-name]
 cd your-app-name
 ```
 
