@@ -17,25 +17,17 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_module/,
+        exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            plugins: [
-              [
-                require.resolve('babel-plugin-named-asset-import'),
-                {
-                  loaderMap: {
-                    svg: {
-                      ReactComponent:
-                        '@svgr/webpack?-svgo,+titleProp,+ref![path]',
-                    },
-                  },
-                },
-              ],
-            ],
-          },
+          // `.swcrc` can be used to configure swc
+          loader: 'swc-loader',
         },
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+        type: 'asset',
       },
     ],
   },
@@ -78,7 +70,17 @@ module.exports = {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        extractComments: false,
+        minify: TerserPlugin.esbuildMinify,
+        // `terserOptions` options will be passed to `esbuild`
+        // Link to options - https://esbuild.github.io/api/#minify
+        // Note: the `minify` options is true by default (and override other `minify*` options), so if you want to disable the `minifyIdentifiers` option (or other `minify*` options) please use:
+        // terserOptions: {
+        //   minify: false,
+        //   minifyWhitespace: true,
+        //   minifyIdentifiers: false,
+        //   minifySyntax: true,
+        // },
+        terserOptions: {},
       }),
     ],
   },
