@@ -1,13 +1,13 @@
 {
   "name": "stylish-react-app",
-  "description": "create stylish react app",
+  "description": "Create stylish React App",
   "private": true,
   "version": "2.0.0",
   "author": "StyleList94",
   "scripts": {
-    "build": "webpack --config webpack.production.js",
-    "build:dev": "webpack --config webpack.development.js",
-    "start": "webpack serve --config webpack.dev.js",
+    "build": "webpack",
+    "build:dev": "webpack --mode development",
+    "dev": "webpack serve --mode development",
     "test": "jest --watch",
     "test:ci": "jest"
   },

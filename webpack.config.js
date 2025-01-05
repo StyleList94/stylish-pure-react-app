@@ -1,16 +1,20 @@
 const path = require('path');
+const { EnvironmentPlugin } = require('webpack');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-module.exports = {
+const defaultConfig = {
   entry: { index: './src/index.js' },
   output: {
-    filename: '[name].[fullhash].bundle.js',
+    filename: '[name].[fullhash].js',
     chunkFilename: '[name].[chunkhash].js',
-    publicPath: '/',
+    publicPath: 'auto',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -31,7 +35,7 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ['*', '.js', '.jsx'] },
+  resolve: { extensions: ['.js', '.jsx'] },
   performance: {
     hints: false,
     maxAssetSize: 400000,
@@ -84,4 +88,55 @@ module.exports = {
       }),
     ],
   },
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    return merge(defaultConfig, {
+      mode: 'development',
+      devServer: {
+        port: 3000,
+        open: true,
+      },
+      module: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+          },
+          {
+            test: /\.s[ac]ss$/i,
+            use: ['style-loader', 'css-loader', 'sass-loader'],
+          },
+        ],
+      },
+      plugins: [new EnvironmentPlugin({})],
+    });
+  }
+
+  return merge(defaultConfig, {
+    mode: 'production',
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        },
+      ],
+    },
+    optimization: {
+      minimizer: [new CssMinimizerPlugin()],
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: '[fullhash].bundle.css',
+        chunkFilename: '[chunkHash].bundle.css',
+      }),
+      new EnvironmentPlugin({}),
+    ],
+  });
 };
